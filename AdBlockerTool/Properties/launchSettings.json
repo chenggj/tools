@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AdBlockerTool (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "AdBlockerTool (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
