@@ -41,6 +41,16 @@
         <TextBlock Text="Prevent by proxy" FontSize="18"
                    Margin="0,20"
                    FontWeight="Medium"/>
+        
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock Text="Enable this proxy to prevent ads from displaying on Edge and Chrome"
+                   FontSize="16"
+                   Margin="20,10,30,10"/>
+            <ToggleButton x:Name="Switch_proxy" Content="Enable"
+                          FontSize="18"
+                          Checked="proxy_Checked"
+                          Unchecked="proxy_Unchecked"/>
+        </StackPanel>
 
 
         <Grid Margin="20, 10" Visibility="Collapsed" >

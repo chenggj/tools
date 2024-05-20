@@ -127,5 +127,15 @@ namespace AdBlockerTool
 
             this.Switch2.Content = "Enable";
         }
+
+        private void proxy_Checked(object sender, RoutedEventArgs e)
+        {
+            ////to enable proxy
+        }
+
+        private void proxy_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ////to disable proxy
+        }
     }
 }
