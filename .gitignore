@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AdBlockTool/v17
+/AdBlockerTool/bin/x64/Debug/net8.0-windows10.0.19041.0/win-x64
+/AdBlockerTool/obj
+/.vs/AdBlockTool/FileContentIndex
