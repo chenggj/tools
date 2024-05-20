@@ -5,16 +5,23 @@ VisualStudioVersion = 17.10.34902.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdBlockerTool", "AdBlockerTool\AdBlockerTool.csproj", "{A9960C74-47C8-4C3D-BEC3-15EF563A354D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdBlockTool", "AdBlockTool\AdBlockTool.csproj", "{37B4626D-B129-4B96-AE63-65AC7E20EB3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
 		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Debug|Any CPU.Build.0 = Debug|x64
+		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Debug|Any CPU.Deploy.0 = Debug|x64
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Debug|ARM64.ActiveCfg = Debug|ARM64
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Debug|ARM64.Build.0 = Debug|ARM64
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Debug|ARM64.Deploy.0 = Debug|ARM64
@@ -24,6 +31,9 @@ Global
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Debug|x86.ActiveCfg = Debug|x86
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Debug|x86.Build.0 = Debug|x86
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Debug|x86.Deploy.0 = Debug|x86
+		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Release|Any CPU.ActiveCfg = Release|x64
+		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Release|Any CPU.Build.0 = Release|x64
+		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Release|Any CPU.Deploy.0 = Release|x64
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Release|ARM64.ActiveCfg = Release|ARM64
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Release|ARM64.Build.0 = Release|ARM64
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Release|ARM64.Deploy.0 = Release|ARM64
@@ -33,6 +43,22 @@ Global
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Release|x86.ActiveCfg = Release|x86
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Release|x86.Build.0 = Release|x86
 		{A9960C74-47C8-4C3D-BEC3-15EF563A354D}.Release|x86.Deploy.0 = Release|x86
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Debug|x64.Build.0 = Debug|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Debug|x86.Build.0 = Debug|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Release|ARM64.Build.0 = Release|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Release|x64.ActiveCfg = Release|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Release|x64.Build.0 = Release|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Release|x86.ActiveCfg = Release|Any CPU
+		{37B4626D-B129-4B96-AE63-65AC7E20EB3F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
