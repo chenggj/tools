@@ -4,12 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdBlockTool"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" SizeToContent="WidthAndHeight">
     <StackPanel HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Margin="40,40,0,0"
-                Height="400" Width="900">
+                Margin="40">
         <TextBlock Text="Prevent by extensions" FontSize="18"
                    FontWeight="Medium"/>
 
@@ -18,7 +18,8 @@
                    FontSize="16"
                    Margin="20,10,30,10"/>
             <ToggleButton x:Name="Switch" Content="Enable"
-                          FontSize="18"
+                          FontSize="18" VerticalAlignment="Center"
+                          Padding="5"
                           Checked="ToggleButton_Checked"
                           Unchecked="ToggleButton_Unchecked"/>
         </StackPanel>
@@ -30,7 +31,8 @@
                    FontSize="16"
                    Margin="20,0,20,10"/>
             <ToggleButton x:Name="Switch2" Content="Enable"
-                          FontSize="18"
+                          FontSize="18" VerticalAlignment="Center"
+                          Padding="5"
                           Checked="ToggleButton1_Checked"
                           Unchecked="ToggleButton1_Unchecked"/>
         </StackPanel>
@@ -42,9 +44,10 @@
 
         <StackPanel Orientation="Horizontal" >
             <TextBlock Text="Enable this proxy to prevent ads from displaying on Edge and Chrome"
-                   FontSize="16"
+                   FontSize="16" VerticalAlignment="Center"
                    Margin="20,10,30,10"/>
             <ToggleButton x:Name="Switch_proxy" Content="Enable"
+                          Padding="5" VerticalAlignment="Center"
                           FontSize="18"
                           Checked="proxy_Checked"
                           Unchecked="proxy_Unchecked"/>
