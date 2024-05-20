@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Titanium.Web.Proxy.Basic;
 
 namespace AdBlockTool
 {
@@ -109,14 +110,18 @@ namespace AdBlockTool
             this.Switch2.Content = "Enable";
         }
 
+
+        private static readonly ProxyTestController controller = new ProxyTestController();
         private void proxy_Checked(object sender, RoutedEventArgs e)
         {
-            ////to enable proxy
+            controller.StartProxy();
+            this.Switch_proxy.Content = "Disable";
         }
 
         private void proxy_Unchecked(object sender, RoutedEventArgs e)
         {
-            ////to disable proxy
+            controller.Stop();
+            this.Switch_proxy.Content = "Enable";
         }
     }
 }

@@ -43,7 +43,7 @@
                    FontWeight="Medium"/>
 
         <StackPanel Orientation="Horizontal" >
-            <TextBlock Text="Enable this proxy to prevent ads from displaying on Edge and Chrome"
+            <TextBlock Text="Enable this proxy to prevent    Url: baidu.com Key: 翻墙 "
                    FontSize="16" VerticalAlignment="Center"
                    Margin="20,10,30,10"/>
             <ToggleButton x:Name="Switch_proxy" Content="Enable"
