@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
@@ -15,6 +16,11 @@ using Titanium.Web.Proxy.StreamExtended.Network;
 
 namespace Titanium.Web.Proxy.Basic
 {
+    public class Filter
+    {
+        public string[] keys { get; set; }
+    }
+
     public class ProxyTestController : IDisposable
     {
         private readonly ProxyServer proxyServer;
@@ -26,8 +32,37 @@ namespace Titanium.Web.Proxy.Basic
 
         private ExplicitProxyEndPoint explicitEndPoint;
 
+        public static Filter ReadJsonFile()
+        {
+            string filePath = @"filter.json";
+
+            try
+            {
+                using (StreamReader fileReader = new StreamReader(filePath))
+                {
+                    string jsonContent = fileReader.ReadToEnd();
+                    Filter filter = JsonConvert.DeserializeObject<Filter>(jsonContent);
+
+                    return filter;
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine($"Error: 文件 {filePath} 未找到。");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: 读取或解析JSON文件时发生错误。{ex.Message}");
+                throw;
+            }
+        }
+
+        public Filter filter = null;
         public ProxyTestController()
         {
+            filter = ReadJsonFile();
+
             Task.Run(() => ListenToConsole());
 
             proxyServer = new ProxyServer();
@@ -152,18 +187,24 @@ namespace Titanium.Web.Proxy.Basic
         private async Task OnRequest(object sender, SessionEventArgs e)
         {
             e.GetState().PipelineInfo.AppendLine(nameof(OnRequest) + ":" + e.HttpClient.Request.RequestUri);
-            if (e.HttpClient.Request.RequestUri.ToString().Contains("翻墙"))
+
+            foreach (string it in filter.keys)
             {
-                WriteToConsole(e.HttpClient.Request.RequestUri.ToString(), ConsoleColor.Red);
-                e.Ok("<!DOCTYPE html>" +
-                      "<html><body><h1>" +
-                      "Website Blocked" +
-                      "</h1>" +
-                      "<p>Blocked by Test.</p>" +
-                      "</body>" +
-                      "</html>");
-                return;
+                if (e.HttpClient.Request.RequestUri.ToString().Contains(it))
+                {
+                    WriteToConsole(e.HttpClient.Request.RequestUri.ToString(), ConsoleColor.Red);
+                    e.HttpClient.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                    //e.Ok("<!DOCTYPE html>" +
+                    //      "<html><body><h1>" +
+                    //      "Website Blocked" +
+                    //      "</h1>" +
+                    //      "<p>Blocked by Test.</p>" +
+                    //      "</body>" +
+                    //      "</html>");
+                    return;
+                }
             }
+
 
 
             var clientLocalIp = e.ClientLocalEndPoint.Address;
