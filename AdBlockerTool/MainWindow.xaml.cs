@@ -59,7 +59,7 @@ namespace AdBlockerTool
             //    extensionsID = this.Edge.IsChecked.Value ? "pdffkfellgipmhklpdmokmckkkfcopbh" : "bgnkhhnnamicmpeenaelnjfhikgbkllg";
             //}
 
-            extensionsID = isEdge ? "pdffkfellgipmhklpdmokmckkkfcopbh" : "bgnkhhnnamicmpeenaelnjfhikgbkllg";
+            extensionsID = isEdge ? "gmgoamodcdcjnbaobigkjelfplakmdhh" : "cfhdojbkjhnklbpkdaibdccddilifddb";
 
             return extensionsID;
         }
