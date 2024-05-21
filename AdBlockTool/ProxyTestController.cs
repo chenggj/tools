@@ -141,9 +141,9 @@ namespace Titanium.Web.Proxy.Basic
             if (!clientLocalIp.Equals(IPAddress.Loopback) && !clientLocalIp.Equals(IPAddress.IPv6Loopback))
                 e.HttpClient.UpStreamEndPoint = new IPEndPoint(clientLocalIp, 0);
 
-            e.DecryptSsl = false;
-            if (hostname.Contains("baidu.com"))
-                e.DecryptSsl = true;
+            e.DecryptSsl = true;
+            //if (hostname.Contains("11111.com"))
+            //    e.DecryptSsl = false;
         }
 
         private void WebSocket_DataSent(object sender, DataEventArgs e)
