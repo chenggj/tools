@@ -39,8 +39,6 @@
         </StackPanel>
 
 
-
-
         <StackPanel Orientation="Horizontal" >
             <TextBlock Text="Block by local proxy" FontSize="18"
                        Width="500"

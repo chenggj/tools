@@ -25,28 +25,34 @@ namespace AdBlockTool
         public static void AddKeyToPolicy(string extensionsId, bool isEdge)
         {
             string update_url = isEdge ? _edge_update_url : _chrome_update_url;
-            RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(isEdge ? _edge_policy_key : _chrome_policy_key, true);
-            if (registryKey != null)
+            RegistryKey? registryKey = Registry.LocalMachine.OpenSubKey(isEdge ? _edge_policy_key : _chrome_policy_key, true);
+            if (registryKey == null)
             {
-                var names = registryKey.GetValueNames();
-                if (names.Length > 0)
-                {
-                    var orderedNames = names.OrderDescending();
-                    int lastIndex = -1;
-                    if (Int32.TryParse(orderedNames.Last(), out lastIndex))
-                    {
-                        registryKey.SetValue((lastIndex + 1).ToString(), $"{extensionsId};{update_url}");
-                    }
-                }
-
-                registryKey.Close();
+                registryKey = Registry.LocalMachine.CreateSubKey(isEdge ? _edge_policy_key : _chrome_policy_key, true);
             }
+
+            var names = registryKey.GetValueNames();
+            if (names.Length > 0)
+            {
+                var orderedNames = names.OrderDescending();
+                int lastIndex = 0;
+                if (Int32.TryParse(orderedNames.Last(), out lastIndex))
+                {
+                    registryKey.SetValue((lastIndex + 1).ToString(), $"{extensionsId};{update_url}");
+                }
+            }
+            else
+            {
+                registryKey.SetValue("1", $"{extensionsId};{update_url}");
+            }
+
+            registryKey.Close();
         }
 
         public static void AddKeyToNormalAddress(string extensionsId, bool isEdge)
         {
             string update_url = isEdge ? _edge_update_url : _chrome_update_url;
-            RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(isEdge ? _edge_key : _chrome_key, true);
+            RegistryKey? registryKey = Registry.LocalMachine.OpenSubKey(isEdge ? _edge_key : _chrome_key, true);
             if (registryKey != null)
             {
                 var extensionKey = registryKey.CreateSubKey(extensionsId);
@@ -59,13 +65,13 @@ namespace AdBlockTool
         public static void UninstallPolicyKey(string extensionsId, bool isEdge)
         {
             string update_url = isEdge ? _edge_update_url : _chrome_update_url;
-            RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(isEdge ? _edge_policy_key : _chrome_policy_key, true);
+            RegistryKey? registryKey = Registry.LocalMachine.OpenSubKey(isEdge ? _edge_policy_key : _chrome_policy_key, true);
             if (registryKey != null)
             {
                 var names = registryKey.GetValueNames();
                 foreach (var name in names)
                 {
-                    string value = registryKey.GetValue(name).ToString();
+                    string? value = registryKey.GetValue(name)?.ToString();
                     if (value != null)
                     {
                         if (value.StartsWith(extensionsId))
@@ -81,7 +87,7 @@ namespace AdBlockTool
 
         public static void UninstallNormalAddress(string extensionsId, bool isEdge)
         {
-            RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(isEdge ? _edge_key : _chrome_key, true);
+            RegistryKey? registryKey = Registry.LocalMachine.OpenSubKey(isEdge ? _edge_key : _chrome_key, true);
             if (registryKey != null)
             {
                 var names = registryKey.GetSubKeyNames();
